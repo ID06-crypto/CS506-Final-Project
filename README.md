@@ -1,4 +1,8 @@
-### Usage
+## Purpose
+
+This project is intended to assess the extent to which the BERT Encoder model found on HuggingFace encodes the part of speech (e.g. verb, noun, adjective) as a part of the initial embeddings of words and to the extent that we can predict the part of speech based only on the embedding of a single word itself.
+
+## Usage
 
 1. Use the command "make" to run the Makefile and install dependencies
 2. Go to preprocessing.ipynb and run each of the cells in order
