@@ -1,20 +1,12 @@
-# CS506-Final-Project
+### Usage
 
-For this project, I plan on creating a classification model to identify what type part of speech a word is based on its embedding.
+1. Use the command "make" to run the Makefile and install dependencies
+2. Go to preprocessing.ipynb and run each of the cells in order
+3. To see the model in action, run the cells in model.ipynb in order (you may want to skip the cell with the grid search)
+4. To TEST, run "pytest -m pytest test_model.py" in the terminal
 
-# Timeline:
-- February 11 - Submit Proposal
-- Febraury 20 - Finish deciding on which dataset to actually implement this project with
-- February 25 - Complete Data cleaning and restructuring (the dataset I - found is structured in a strange way)
- -March 1 - Start testing various models various models and evaluating what I plan on using for my final results (most likeley simple MLP)
-- March 15 - Finish testing and researching ML methods and focus on finding the best set of hyperparamters for the model for my final prject (this may mean testing several times with several different configurations)
-- March 25 - Finish making visualizations for projects
-- April 1 - Finish writing reports and creating presentation
+## Preprocessing
+Before building the model, I first built my dataset pulling from both kaggle and nltk word datasets. I then shifted these all into one csv file which had the words in one column and their part of speeches in a second column. After this, I removed all of the words with any strange symbols such as numbers, dashes, slashes, or punctuation marks. Finally, I used the BERT encoder model from HuggingFace to convert all of these words into their respective embeddings, added meaningless embeddings to add onto the end of the shorter words (this way the model would take all input tensors of the same shape), and created attention masks so that the model would not accidentally attend to these meaningless padding vectors.
 
-# Project Goals:
-- My model must be able to correctly identify what part of speech a word is with greater than 80% accuracy
-- Myu presentation, visualization, and reports must be able to be clearly and easily understood
-
-# Data Collection Plan:
-- I plan on initially using a dataset I found on kaggle which maps English words to their respective parts of speech (https://www.kaggle.com/datasets/thedevastator/common-english-parts-of-speech?select=adjectives.csv)
-- I will then need to use some method of changing the words to their embeddings either by Gensim or by using the encoder functions from the Transformers Library via HuggingFace (perhaps different models will encode this information in different ways and it may make sense to try a few)
+## The Initial Model
+This model I built is a single-layer transformer using an MLP with one hidden layer with n layers and a  multi-headed self-attention (MHA) with m heads without causal masking allowing embeddings to attend both forwards and backwards. The experimentation I plan on doing includes finding the optimal number of dimensions in hidden layers, number of attention heads, the number of hidden layers, and using other techniques such as dropout to decrease overfitting. I am using the Adam optimizer for the optimizer function using L2 regularization during training and using cross entropy loss as a loss function as well.
