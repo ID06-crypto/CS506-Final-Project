@@ -52,6 +52,6 @@ I then tried adding two layers inside of the MLP (along with relu activation and
 ---
 
 ## Final Results Evaluation - 200 Epochs
-Although I thought my model was converging well after 10 epochs, I decided to run my model for longer - this time 200 epochs. I found that the model actually exhibited another overfitting behaviour where after 25 epochs, it actually began to overfit again though not as much as before. To mitigate this, I increased dropout layers to .5 and then up to .8 as well as increasing the weight_decay parameter. However, I found that no matter what I did at this point with this model, I was not able to meaning fully increase the the validation accuracy past about .805.
+Although I thought my model was converging well after 10 epochs, I decided to run my model for longer - this time 200 epochs. I found that the model actually exhibited another overfitting behaviour where after 25 epochs, it actually began to overfit again though not as much as before. To mitigate this, I increased dropout layers to .5 and then up to .8 as well as increasing the weight_decay parameter. However, I found that no matter what I did at this point with this model, I was not able to meaning fully increase the the validation accuracy past about .805. While I was ultimately not sure how to improve the model past this point, I did actually pass my initial goal of beating my acuracy benchmark of .8 for validation.
 
 ![200 Epoch Training Curves](images/final_200.png)
