@@ -1,3 +1,6 @@
+## Video Link
+https://www.youtube.com/watch?v=aNuqik7dnr4
+
 ## Purpose
 
 This project is intended to assess the extent to which the BERT Encoder model found on HuggingFace encodes the part of speech (e.g. verb, noun, adjective) as a part of the initial embeddings of words and to the extent that we can predict the part of speech based only on the embedding of a single word itself.
